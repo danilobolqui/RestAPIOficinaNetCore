@@ -1,3 +1,6 @@
+using WebAPIOficina.Data.Contexto;
+using WebAPIOficina.Domain.Models;
+
 namespace WebAPIOficina
 {
     public class WeatherForecast

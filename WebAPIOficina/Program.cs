@@ -1,7 +1,15 @@
 using WebAPIOficina.Data.Contexto;
 using Microsoft.EntityFrameworkCore;
+using WebAPIOficina.Domain.Models;
+using WebAPIOficina.Configuration;
 
+//******
+//BUILDER.
+//******
 var builder = WebApplication.CreateBuilder(args);
+
+//DI.
+builder.Services.ResolveDependencies();
 
 builder.Services.AddControllers();
 
@@ -15,6 +23,9 @@ builder.Services.AddDbContext<WebAPIOficinaDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+//******
+//APP.
+//******
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

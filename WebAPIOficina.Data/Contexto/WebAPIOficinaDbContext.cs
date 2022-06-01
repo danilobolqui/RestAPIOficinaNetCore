@@ -20,9 +20,12 @@ namespace WebAPIOficina.Data.Contexto
 
             //Chama base.
             base.OnModelCreating(modelBuilder);
+        }
 
-            
-            Criar os EntityTypeConfiguration ***
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            //Configura lazy loading para este contexto.
+            optionsBuilder.UseLazyLoadingProxies();
         }
     }
 }
