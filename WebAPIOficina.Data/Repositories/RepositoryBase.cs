@@ -5,13 +5,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using WebAPIOficina.Data.Contexto;
+using WebAPIOficina.Data.Context;
 using WebAPIOficina.Domain.Interfaces;
 using WebAPIOficina.Domain.Models;
 
 namespace WebAPIOficina.Data.Repositories
 {
-    public abstract class RepositoryBase<TEntity> : IRepository<TEntity> where TEntity : Entity, new()
+    public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : Entity, new()
     {
         protected readonly WebAPIOficinaDbContext DbContext;
         protected readonly DbSet<TEntity> DbSet;

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebAPIOficina.Data.Contexto
+namespace WebAPIOficina.Data.Context
 {
     public class WebAPIOficinaDbContext : DbContext
     {

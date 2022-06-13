@@ -8,7 +8,7 @@ using WebAPIOficina.Domain.Models;
 
 namespace WebAPIOficina.Domain.Interfaces
 {
-    public interface IRepository<TEntity> : IDisposable where TEntity : Entity
+    public interface IRepositoryBase<TEntity> : IDisposable where TEntity : Entity
     {
         Task Add(TEntity entity);
         Task<TEntity?> GetById(Guid id);

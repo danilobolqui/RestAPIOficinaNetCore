@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
-using WebAPIOficina.Data.Contexto;
+using WebAPIOficina.Data.Context;
 using WebAPIOficina.Domain.Models;
 
 namespace WebAPIOficina.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [ApiVersion("2.0")]
+    [ApiVersion("1.0", Deprecated = true)]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
