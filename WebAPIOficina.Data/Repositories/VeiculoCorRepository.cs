@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebAPIOficina.Data.Context;
-using WebAPIOficina.Domain.Interfaces;
 using WebAPIOficina.Domain.Models;
+using WebAPIOficina.Domain.Interfaces;
 
 namespace WebAPIOficina.Data.Repositories
 {

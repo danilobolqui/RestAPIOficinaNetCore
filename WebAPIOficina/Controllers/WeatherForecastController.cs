@@ -1,12 +1,16 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using WebAPIOficina.Application;
 using WebAPIOficina.Data.Context;
 using WebAPIOficina.Domain.Models;
 
 namespace WebAPIOficina.Controllers
 {
+    [Authorize]
     [ApiController]
     [ApiVersion("2.0")]
     [ApiVersion("1.0", Deprecated = true)]
+    [ApiExplorerSettings(IgnoreApi = true)]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
@@ -27,7 +31,7 @@ namespace WebAPIOficina.Controllers
             var clienteVeiculo = _context.Set<ClienteVeiculo>().ToList();
         }
 
-        [HttpGet(Name = "GetWeatherForecast")]
+        [HttpGet("GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
@@ -37,6 +41,12 @@ namespace WebAPIOficina.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpGet("GetTeste")]
+        public ActionResult GetTeste()
+        {
+            return Ok();
         }
     }
 }

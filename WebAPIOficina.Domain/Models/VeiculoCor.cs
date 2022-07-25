@@ -10,7 +10,7 @@ namespace WebAPIOficina.Domain.Models
     public class VeiculoCor : Entity
     {
         public Guid Id { get; set; }
-        public string Nome { get; set; } = string.Empty;
+        public string? Nome { get; set; }
         public bool Status { get; set; }
 
         //FK inversa.
