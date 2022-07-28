@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using WebAPIOficina.Core.Enum;
 using WebAPIOficina.Domain.Interfaces;
 using WebAPIOficina.Domain.Notifier;
 
@@ -32,20 +33,24 @@ namespace WebAPIOficina.Controllers
             return !_notifier.HasNotification();
         }
 
-        protected ActionResult CustomResponse(object result = null)
+        protected ActionResult CustomResponse(CustomStatusCode successStatusCode = CustomStatusCode.Ok200,
+                                              CustomStatusCode errorStatusCode = CustomStatusCode.BadRequest400,
+                                              object? result = null)
         {
             if (OperacaoValida())
             {
-                return Ok(new
+                return StatusCode((int)successStatusCode, new
                 {
                     success = true,
-                    data = result
+                    data = result,
+                    errors = (object)null!
                 });
             }
 
-            return BadRequest(new
+            return StatusCode((int)errorStatusCode, new
             {
                 success = false,
+                data = (object)null!,
                 errors = _notifier.GetNotifications().Select(n => n.NotificationMessage)
             });
         }
@@ -57,7 +62,7 @@ namespace WebAPIOficina.Controllers
                 NotificarErroModelInvalida(modelState);
             }
 
-            return CustomResponse();
+            return CustomResponse(CustomStatusCode.Ok200);
         }
 
         protected void NotificarErroModelInvalida(ModelStateDictionary modelState)

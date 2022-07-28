@@ -16,12 +16,10 @@ namespace WebAPIOficina.Application.AutoMapper
             CreateMap<VeiculoCorIptViewModel, VeiculoCor>().ReverseMap();
             CreateMap<VeiculoCorOtpViewModel, VeiculoCor>().ReverseMap();
 
-            //CreateMap<OrdemServico, OsViewModel>().ReverseMap();
-
-            //CreateMap<OrdemServico, OsCompletaViewModel>()
-            //    .ForMember(dest => dest.Os, opt => opt.MapFrom(src => src))
-            //    .ForMember(dest => dest.listProdutoServico, opt => opt.MapFrom(src => src.OSProdutoServicos))
-            //    .ReverseMap();
+            CreateMap<OsProdutoServicoIptViewModel, OSProdutoServico>().ReverseMap();
+            CreateMap<OsCompletaIptViewModel, OrdemServico>()
+                .ForMember(dest => dest.OsProdutoServicos, opt => opt.MapFrom(src => src.listProdutoServico))
+                .ReverseMap();
 
             //Exemplos:
             //CreateMap<Endereco, EnderecoViewModel>().ReverseMap();

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace WebAPIOficina.Application.ViewModels
 {
+    /// <summary>
+    /// ViewModel para input veículo cor.
+    /// </summary>
     public class VeiculoCorIptViewModel
     {
         public Guid? Id { get; set; }
@@ -14,6 +17,9 @@ namespace WebAPIOficina.Application.ViewModels
         public bool Status { get; set; }
     }
 
+    /// <summary>
+    /// ViewModel para output veículo cor.
+    /// </summary>
     public class VeiculoCorOtpViewModel
     {
         public Guid Id { get; set; }

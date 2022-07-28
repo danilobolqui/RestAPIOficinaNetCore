@@ -17,7 +17,7 @@ namespace WebAPIOficina.Data.EntityConfig
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Nome).IsRequired();
             builder.Property(p => p.Produto).IsRequired();
-            builder.Property(p => p.Valor).IsRequired();
+            builder.Property(p => p.Valor).IsRequired().HasColumnType("numeric(10,2)");
             builder.Property(p => p.Status).IsRequired();
         }
     }

@@ -41,11 +41,11 @@ namespace WebAPIOficina.V1
             if (autenticado)
             {
                 _logger.LogInformation("Usuário " + loginUser.Email + " logado com sucesso.");
-                return CustomResponse(await GerarJwt(Guid.NewGuid().ToString(), loginUser.Email));
+                return CustomResponse(successStatusCode: Core.Enum.CustomStatusCode.Ok200, result: await GerarJwt(Guid.NewGuid().ToString(), loginUser.Email));
             }
 
             NotificarErro("Usuário ou senha incorretos");
-            return CustomResponse(loginUser);
+            return CustomResponse(successStatusCode: Core.Enum.CustomStatusCode.Ok200, result: loginUser);
         }
 
         private async Task<LoginResponseViewModel> GerarJwt(string userId, string userEmail)

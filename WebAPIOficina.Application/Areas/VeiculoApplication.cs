@@ -30,7 +30,7 @@ namespace WebAPIOficina.Application.Areas
             return _mapper.Map<VeiculoCorOtpViewModel>(veiculoCor);
         }
 
-        public async Task AddVeiculoCor(VeiculoCorIptViewModel veiculoCorViewModel) 
+        public async Task<Guid> AddVeiculoCor(VeiculoCorIptViewModel veiculoCorViewModel)
         {
             if (ExecutarValidacao(new VeiculoCorIptViewModelValidation(), veiculoCorViewModel))
             {
@@ -40,8 +40,11 @@ namespace WebAPIOficina.Application.Areas
                 {
                     veiculoCorModel.Id = Guid.NewGuid();
                     await _veiculoCorRepository.Add(veiculoCorModel);
+                    return veiculoCorModel.Id;
                 }
             }
+
+            return Guid.Empty;
         }
 
         public async Task UpdateVeiculoCor(VeiculoCorIptViewModel veiculoCorViewModel)

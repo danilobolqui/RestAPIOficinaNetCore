@@ -26,6 +26,7 @@ namespace WebAPIOficina.Configuration
             services.AddScoped<IVeiculoCorRepository, VeiculoCorRepository>();
 
             services.AddScoped<IVeiculoApplication, VeiculoApplication>();
+            services.AddScoped<IOsApplication, OsApplication>();
 
             return services;
         }

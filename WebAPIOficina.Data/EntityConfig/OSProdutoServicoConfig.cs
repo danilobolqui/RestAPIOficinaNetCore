@@ -15,13 +15,13 @@ namespace WebAPIOficina.Data.EntityConfig
         {
             builder.ToTable("OSProdutoServico");
             builder.HasKey(p => p.Id);
-            builder.Property(p => p.Valor).IsRequired();
-            builder.Property(p => p.Desconto).IsRequired();
+            builder.Property(p => p.Valor).IsRequired().HasColumnType("numeric(10,2)");
+            builder.Property(p => p.Desconto).IsRequired().HasColumnType("numeric(10,2)");
 
             //FK OS.
             builder
                 .HasOne(p => p.OrdemServico)
-                .WithMany(p => p.OSProdutoServicos)
+                .WithMany(p => p.OsProdutoServicos)
                 .HasForeignKey(p => p.IdOrdemServico);
 
             //FK Produto Serviço.

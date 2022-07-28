@@ -11,7 +11,7 @@ namespace WebAPIOficina.Application.Interfaces
     {
         Task<VeiculoCorOtpViewModel> SearchVeiculoCorById(Guid id);
 
-        Task AddVeiculoCor(VeiculoCorIptViewModel veiculoCorViewModel);
+        Task<Guid> AddVeiculoCor(VeiculoCorIptViewModel veiculoCorViewModel);
 
         Task UpdateVeiculoCor(VeiculoCorIptViewModel veiculoCorViewModel);
 

@@ -24,7 +24,7 @@ namespace WebAPIOficina.Domain.Models
         public virtual Cliente ClienteDonoAtual { get; set; } = new Cliente();
 
         //FK inversa.
-        public virtual ICollection<OSProdutoServico>? OSProdutoServicos { get; set; }
+        public virtual ICollection<OSProdutoServico>? OsProdutoServicos { get; set; }
 
         public override bool IsValid()
         {
